@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>2. Custom element API ✨</title>
+    <meta name="viewport" content="width=device-width" />
+  </head>
+
+  <body>
+    <axa-demo></axa-demo>
+    <axa-demo></axa-demo>
+    <axa-demo></axa-demo>
+    <axa-demo></axa-demo>
+    <axa-demo></axa-demo>
+    <axa-demo></axa-demo>
+    <axa-demo></axa-demo>
+  </body>
+
+  <script>
+    customElements.define(
+      "axa-demo",
+      class CaDemo extends HTMLElement {
+        constructor() {
+          super()
+
+          this.attachShadow({ mode: "open" })
+
+          const element = document.createElement("p")
+          element.textContent = "Bonjour Axa !"
+          this.shadowRoot.append(element)
+        }
+      }
+    )
+  </script>
+</html>
